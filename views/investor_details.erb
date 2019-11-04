@@ -1,0 +1,43 @@
+<img src=" <%= @investor["logo_url"] %>" alt="">  
+
+<h1>RATINGS & REVIEWS</h1>
+
+
+<div >  
+  <% @investor_ratings.each do |user| %> 
+    <div>
+      <p><%= user[rating] %> </p>
+      <p><%= user["review"] %></p> 
+    </div>
+    <% end %>
+</div>
+
+<h3>  </h3>
+<p></p>
+
+<h3>2</h3>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quo dicta sit? Asperiores architecto quia beatae quas pariatur provident? Quia quisquam, eligendi nihil dolor alias adipisci neque dignissimos temporibus!</p>
+
+<h3>4</h3>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem corporis quas illo! Quis dignissimos iure sequi nisi. Ratione, dolore! Accusantium, est quo. Vel recusandae porro deleniti et sapiente, pariatur nulla!</p>
+
+<h3>3</h3>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cupiditate inventore nemo incidunt corrupti ducimus ad rem, distinctio ullam rerum totam repudiandae possimus eum sint temporibus ipsam, consectetur deleniti perspiciatis?</p>
+
+<form action="/rate_review" method="post">
+  <input type="hidden" name="id" value="<%= @investor["id"] %>%">
+  <label for="">Overall rating, scale between 1-5:</label> <br>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select><br>
+  <label for="">Review</label><br>
+  <textarea name="review" rows="10" cols="50">
+    Write your review here.
+  </textarea>
+  <br>
+  <button>submit</button>
+</form>

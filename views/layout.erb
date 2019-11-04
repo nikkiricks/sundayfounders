@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sunday Founders</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <% if logged_in? %>
+    <p>logged in as <%= current_user["email"] %> </p>
+    <form action="/logout" method="post" >
+      <input type="hidden" name="_method" value="delete">
+      <button>logout</button>
+    </form>
+  <% end %>
+
+  <header>
+    <h1>Sunday Founders</h1>
+  </header>
+
+  <nav>
+    <a href="/">home | </a>
+    <a href="/investors">investors | </a>
+    <a href="/login">login </a>
+    <!--<a href="/landing_page">landing page |</a>  
+    <a href="/login"> login |</a>-->
+  </nav>
+
+
+  <div>
+  
+    <%= yield %>  
+  
+  </div>
+
+
+</body>
+</html>
