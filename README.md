@@ -6,7 +6,11 @@ A CRUD Ruby app that's a transparency platform on investors for startup founders
 
 INSERT PICTURE OF FINAL WEBSITE HERE
 
-# Languages used
+## User story
+
+When growing a company an entrepreneur can come to a fork in the road where they need to decide whether or not they fundraise or bootstrap. Currently, the startup climate leans towards entrepreneurs to fundraise. However, if that founder isn't currently connected to the ecosystem, there is little to no information on investors. The investor world is a black box, that with some transparency will help both founders and investors improve behavior and educate themselves more. At a minimum, founders will want basic information on investors like fund-size, portfolio size, industries invested in. The most valuable information will be on the rating and reviews from other founders who have applied, pitched or received funding from these investors.
+
+## Languages used
 
 * Ruby
 * Sinatra
@@ -32,7 +36,11 @@ I then thought through what tables in my database I needed. I realized later tha
 
 I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJqmAgV/Sunday-Founders?node-id=0%3A1) to help visualize the layout.
 
-### Writing to-do list
+### Creating trello board
+
+[Trello board](https://trello.com/b/0jgVBBX2/sf-crud-app)
+![](images/SF_trello.png)
+
 
 ## Challenges
 
@@ -40,6 +48,8 @@ I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJq
 * Login process and deciding what information I wanted the user to be able to see before signing-up.
 
 ## Lessons learned
+
+* 
 
 ## Unsolved problems and bonus features
 
