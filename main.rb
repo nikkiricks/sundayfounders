@@ -72,6 +72,9 @@ delete '/delete_investor' do
 end
 
 post '/rate_review' do
+  @investor = find_one_investor(params[:id])
+  @user = find_one_user(params[:id])
+  @investor_ratings = find_one_rating_review(params[:id])
 
   rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
   #make a new request on behalf of the client
@@ -120,6 +123,13 @@ end
 delete '/logout' do
   session[:user_id] = nil
   redirect "/login"
+end
+
+get '/profile' do
+  # once user is logged in
+  # have user_dashboard show nav bar anchor <a href="/profile">Profile</a>
+  # insert email of user at the top
+  # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
 end
 
 
