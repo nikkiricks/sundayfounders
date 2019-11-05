@@ -47,16 +47,25 @@ get '/investor_details' do
   erb :investor_details
 end
 
-
-
 post '/rate_review' do
 
   rate_review(params[:rating], params[:review] )
-  
   #make a new request on behalf of the client
   # redirect is a get /
   redirect "/investor_details?id=#{params[:id] }"
 
+end
+
+get '/signup' do
+ 
+  erb :signup
+end
+
+post '/signup' do
+
+  create_user(params[:email], params[:bio] )
+
+  redirect '/'
 end
 
 

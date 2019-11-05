@@ -1,19 +1,12 @@
 <img src=" <%= @investor["logo_url"] %>" alt="">  
 
+<p>Visit <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a>'s site. </p>
+<p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
+<p>FUM: $<%= @investor["fum"]%>M </p>
+
+
 <h1>RATINGS & REVIEWS</h1>
 
-
-<div >  
-  <% @investor_ratings.each do |user| %> 
-    <div>
-      <p><%= user[rating] %> </p>
-      <p><%= user["review"] %></p> 
-    </div>
-    <% end %>
-</div>
-
-<h3>  </h3>
-<p></p>
 
 <h3>2</h3>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quo dicta sit? Asperiores architecto quia beatae quas pariatur provident? Quia quisquam, eligendi nihil dolor alias adipisci neque dignissimos temporibus!</p>

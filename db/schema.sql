@@ -7,7 +7,9 @@ CREATE TABLE investors (
   id SERIAL,
   name TEXT,
   url TEXT,
-  logo_url TEXT
+  logo_url TEXT,
+  portfolio_size TEXT,
+  fum TEXT
 );
 
 CREATE TABLE investor_ratings (
@@ -23,6 +25,16 @@ CREATE TABLE users (
   email TEXT, 
   password_digest TEXT
 );
+
+
+ALTER TABLE investors ADD COLUMN portfolio_size TEXT;
+ALTER TABLE investors ADD COLUMN fum TEXT;
+
+UPDATE investors SET portfolio_size = 270, fum = 250 WHERE name = 'Artesian';
+UPDATE investors SET portfolio_size = 40, fum = 250 WHERE name = 'Airtree';
+UPDATE investors SET portfolio_size = 47, fum = 200 WHERE name = 'Blackbird';
+UPDATE investors SET portfolio_size = 13, fum = 50 WHERE name = 'Rampersand';
+
 
 
 SELECT rating FROM investor_ratings;
@@ -43,15 +55,7 @@ INSERT INTO investors (name, url, logo_url) VALUES ('Blackbird', 'https://blackb
 INSERT INTO investors (name, url, logo_url) VALUES ('Rampersand', 'http://rampersand.vc/', 'https://images.squarespace-cdn.com/content/v1/5c386d5c697a98c3d98b4739/1563345644226-7IKR70C0C4H8PEH5WV7Q/ke17ZwdGBToddI8pDm48kHQmEroUjuAYEGd6XkAMUsdZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFWPUj2HnfQH23RtiqsDuB-nOIVJ8JG7EmRJnqTlgkLGk04jVIyHqa3GP_YF0Nx3_k/RAMPERSAND_VC_Sunday+Founders.jpg?format=750w');
 
 
--- not done - pending needing investor_id and user_id
-CREATE TABLE investor_details (
-  id SERIAL,
-  name TEXT,
-  fund_type TEXT, 
-  fund_size TEXT,
-  ratings TEXT,
-  reviews TEXT
-);
+
 
 
 
