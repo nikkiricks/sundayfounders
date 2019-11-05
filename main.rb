@@ -57,6 +57,19 @@ get '/investor_details' do
   erb :investor_details
 end
 
+patch '/update_investor' do
+  update_investor(params[:id])
+
+  redirect '/'
+  # redirect "/investor_details?id=#{params[:id] }"
+end
+
+delete '/delete_investor' do
+  delete_investor(params[:id] )
+
+  redirect '/investors'
+end
+
 post '/rate_review' do
 
   rate_review(params[:rating], params[:review] )

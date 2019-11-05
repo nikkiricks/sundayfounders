@@ -20,3 +20,10 @@ def create_investor (name, url, logo_url, portfolio_size, fum)
   return run_sql("INSERT INTO investors (name, url, logo_url, portfolio_size, fum) VALUES ('#{name} ', ' #{url} ', '#{logo_url} ', ' #{portfolio_size} ', ' #{fum} ') ")
 end
 
+def  update_investor (id)
+  return run_sql("UPDATE investors SET name = '#{params[:name]}', url = '#{params[:url]}' logo_url = '#{params[:logo_url]}', portfolio_size = '#{params[:portfolio_size]}', fum = '#{params[:fum]}' WHERE id = #{params[:id]};")
+end
+
+def delete_investor (id)
+  return run_sql( "DELETE FROM investors WHERE id = #{id};")
+end
