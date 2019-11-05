@@ -25,8 +25,8 @@ end
 patch '/update_investor' do
   update_investor(params[:id])
 
-  redirect '/'
-  # redirect "/investor_details?id=#{params[:id] }"
+  # redirect '/'
+  redirect "/investor_details?id=#{params[:id] }"
 end
 
 delete '/delete_investor' do

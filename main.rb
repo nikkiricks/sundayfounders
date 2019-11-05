@@ -24,8 +24,8 @@ def current_user
 end
 
 require_relative 'models/investors'
-require_relative 'models/users' 
 require_relative 'models/ratings'
+require_relative 'models/users' 
 
 enable :sessions
 
@@ -45,6 +45,43 @@ post '/rate_review' do
   # redirect is a get /
   redirect "/investor_details?id=#{params[:id] }"
 
+
+
+  # insert code later
+
+#   <form action="/rate_review" method="post">
+#   <input type="hidden" name="_method" value="post">
+#   <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
+#   <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
+#   <input type="hidden" name="user_id" value="<%=@user["id"]%>">
+
+#   <label for="">Overall rating, scale between 1-5:</label><br>
+#   <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
+#     <option value="1">1</option>
+#     <option value="2">2</option>
+#     <option value="3">3</option>
+#     <option value="4">4</option>
+#     <option value="5">5</option>
+#   </select><br>
+#   <label for="">Review</label><br>
+#   <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50">
+#     Write your review here.
+#   </textarea><br>
+#   <button>Submit</button>
+# </form>
+
+# <%= @investor[:name] %>
+
+end
+
+get '/profile' do
+  @user = find_one_user(params[:id])
+  # session[:user_id] = user["id"]
+  # once user is logged in
+  # have user_dashboard show nav bar anchor <a href="/profile">Profile</a>
+  # insert email of user at the top
+  # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
+  erb :profile
 end
 
 

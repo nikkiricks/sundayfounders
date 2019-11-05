@@ -26,6 +26,8 @@ CREATE TABLE users (
   password_digest TEXT
 );
 
+DROP TABLE users;
+
 DELETE FROM users WHERE id = 1;
 
 ALTER TABLE investors ADD COLUMN portfolio_size TEXT;
