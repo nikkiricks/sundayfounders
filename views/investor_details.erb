@@ -22,9 +22,10 @@
 <form action="/rate_review" method="post">
   <input type="hidden" name="_method" value="post">
   <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
-  <input type="hidden" name="investor_id" value="<%=@investors["id"]%>">
+  <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
   <input type="hidden" name="user_id" value="<%=@user["id"]%>">
-  <label for="">Overall rating, scale between 1-5:</label>
+
+  <label for="">Overall rating, scale between 1-5:</label><br>
   <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -32,15 +33,15 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select><br>
-  <label for="">Review</label>
+  <label for="">Review</label><br>
   <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50">
     Write your review here.
-  </textarea>
+  </textarea><br>
   <button>Submit</button>
 </form>
 
 <%= @investor[:name] %>
-<%= @investor[:name] %>
+
 
 
 <h3>Oops! Did we get the informaton wrong? Help us update it...</h3>

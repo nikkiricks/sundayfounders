@@ -1,3 +1,6 @@
+require 'bcrypt'
+
+
 def run_sql(sql)
   conn = PG.connect(ENV['DATABASE_URL'] || {dbname: "sundayfounders"})
   records = conn.exec(sql)
@@ -23,7 +26,7 @@ def create_user(email, password)
   password_digest = BCrypt::Password.create(password)
 
   sql =  "INSERT INTO users (email, password_digest) "
-  sql += "VALUES ('#{ email }', '#{ password_digest }');"
+  sql += "VALUES ('#{email}', '#{password_digest}');"
   return run_sql(sql)
 end
 

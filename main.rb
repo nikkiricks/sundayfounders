@@ -53,6 +53,7 @@ end
 
 get '/investor_details' do
   @investor = find_one_investor(params[:id])
+  @user = find_one_user(params[:user_id])
   @investor_ratings = find_one_rating_review(params[:id])
   erb :investor_details
 end
@@ -72,12 +73,13 @@ end
 
 post '/rate_review' do
 
-  rate_review(params[:rating], params[:review] )
+  rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
   #make a new request on behalf of the client
   # redirect is a get /
   redirect "/investor_details?id=#{params[:id] }"
 
 end
+
 
 get '/signup' do
  
@@ -88,7 +90,7 @@ post '/signup' do
 
   create_user(params[:email], params[:bio] )
 
-  redirect '/'
+  redirect '/investors'
 end
 
 
@@ -109,10 +111,10 @@ post '/login' do
     # redirect to secret location
     redirect "/" #eventually have user go to user dashboards
   else
-    return "no bryan"
+    return "It's in the database but it doesn't work"
   end
   # redirect to secret location
-  redirect "/"
+  redirect "/investors"
 end
 
 delete '/logout' do
@@ -125,7 +127,25 @@ end
 #pages for later
 
 
+# erb psydocode
 
+# figure out passwords
+# figure out log in first as posting on investor page will need user_id
+
+# investor_details
+
+#once able to post 
+
+# Loop through all of investor_ratings to get the rating for that specific investor, this needs to include an if statement specific to investor_id ADD CODE IN LATER:
+
+# <div >  
+#   <% @investor_ratings.each do |user| %> 
+#     <div>
+#       <h3><%= user[rating] %> </h3>
+#     <%  <p><%= user["review"] %></p> 
+#     </div>
+#     <% end %>
+# </div> 
 
 
 
