@@ -34,42 +34,6 @@ get '/' do
   erb :index
 end 
 
-get '/investors' do
-
-  @investors = all_investors()
-
-  erb :investors
-end
-
-post '/create_investor' do
-
-  create_investor(params[:name], params[:url], params[:logo_url], params[:portfolio_size], params[:fum] )
-  
-  #make a new request on behalf of the client
-  # redirect is a get /
-  redirect '/investors'
-
-end
-
-get '/investor_details' do
-  @investor = find_one_investor(params[:id])
-  @user = find_one_user(params[:user_id])
-  @investor_ratings = find_one_rating_review(params[:id])
-  erb :investor_details
-end
-
-patch '/update_investor' do
-  update_investor(params[:id])
-
-  redirect '/'
-  # redirect "/investor_details?id=#{params[:id] }"
-end
-
-delete '/delete_investor' do
-  delete_investor(params[:id] )
-
-  redirect '/investors'
-end
 
 post '/rate_review' do
   @investor = find_one_investor(params[:id])
@@ -84,55 +48,10 @@ post '/rate_review' do
 end
 
 
-get '/signup' do
- 
-  erb :signup
-end
-
-post '/signup' do
-
-  create_user(params[:email], params[:bio] )
-
-  redirect '/investors'
-end
 
 
-get '/login' do
-  
-  erb :login
-
-end
-
-post '/login' do
-  # check Bryan's account exists in the db
-  user = find_user_by_email(params[:email])
-  if BCrypt::Password.new(user["password_digest"]) == params[:password]
-    # check password is valid
-    # create a session for Bryan - writing something down in memory
-    # write down id of login user (we usually say create a session for the user)
-    session[:user_id] = user["id"] #single source of truth
-    # redirect to secret location
-    redirect "/" #eventually have user go to user dashboards
-  else
-    return "It's in the database but it doesn't work"
-  end
-  # redirect to secret location
-  redirect "/investors"
-end
-
-delete '/logout' do
-  session[:user_id] = nil
-  redirect "/login"
-end
-
-get '/profile' do
-  # once user is logged in
-  # have user_dashboard show nav bar anchor <a href="/profile">Profile</a>
-  # insert email of user at the top
-  # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
-end
-
-
+require_relative 'controllers/investors_controller'
+require_relative 'controllers/login_controller'
 
 #pages for later
 
