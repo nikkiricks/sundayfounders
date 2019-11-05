@@ -26,9 +26,13 @@ CREATE TABLE users (
   password_digest TEXT
 );
 
+SELECT investor_id FROM investor_ratings;
+
 DROP TABLE users;
 
-DELETE FROM users WHERE id = 1;
+DELETE FROM users WHERE id = 'kay';
+
+DELETE FROM users WHERE id between 0 and 17;
 
 ALTER TABLE investors ADD COLUMN portfolio_size TEXT;
 ALTER TABLE investors ADD COLUMN fum TEXT;
@@ -39,13 +43,12 @@ UPDATE investors SET portfolio_size = 47, fum = 200 WHERE name = 'Blackbird';
 UPDATE investors SET portfolio_size = 13, fum = 50 WHERE name = 'Rampersand';
 
 
-
 SELECT rating FROM investor_ratings;
 
 
 INSERT INTO users (email, password_digest) VALUES ('nikki.ricks@gmail.com', 'pudding');
 
-INSERT INTO investor_ratings (investor_id, rating, review) VALUES ('1', 3, 'This is a test rating on an investor to see if it can come up or not');
+INSERT INTO investor_ratings (investor_id, user_id, rating, review) VALUES (1, 2, 3, 'Manual input in table 9pm Tuesday');
 
 
 INSERT INTO investors (name, url, logo_url) VALUES ('Artesian', 'https://www.artesianinvest.com/', 'https://images.squarespace-cdn.com/content/v1/5c386d5c697a98c3d98b4739/1563343449818-8EGGJHQH1DNXUHEMPX0J/ke17ZwdGBToddI8pDm48kHQmEroUjuAYEGd6XkAMUsdZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFWPUj2HnfQH23RtiqsDuB-nOIVJ8JG7EmRJnqTlgkLGk04jVIyHqa3GP_YF0Nx3_k/Artesian_VC_Sunday+Founders.jpg?format=750w');

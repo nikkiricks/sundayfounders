@@ -5,9 +5,10 @@ end
 
 post '/signup' do
 
-  create_user(params[:email], params[:password_digest] )
-
-  redirect "/profile?id=#{params[:id]}"
+  create_user(params[:email], params[:password] )
+  # redirect '/'
+  redirect '/login'
+  # redirect "/profile?id=#{params[:id]}"
 end
 
 
@@ -20,6 +21,7 @@ end
 post '/login' do
   # check Bryan's account exists in the db
   user = find_user_by_email(params[:email])
+  # return (params[:password])
   if BCrypt::Password.new(user["password_digest"]) == params[:password]
     # check password is valid
     # create a session for Bryan - writing something down in memory

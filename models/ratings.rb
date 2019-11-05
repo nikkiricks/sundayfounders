@@ -18,6 +18,10 @@ def rate_review (investor_id, rating, review)
   return run_sql("INSERT INTO investor_ratings (investor_id, rating, review) VALUES (#{investor_id}, #{rating}, '#{review}');")
 end
 
+def find_all_ratings_by_investor_id (id)
+  return run_sql ("SELECT * FROM investor_ratings WHERE investor_id = #{id};")
+end
+
 # use once user login is figured out
 
 # def rate_review (investor_id, user_id, rating, review)

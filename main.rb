@@ -38,14 +38,16 @@ end
 post '/rate_review' do
 
   #slowly working on interpolation of ratings and reviews for each investor! needing to figure out were to get it from
- # @investor_ratings = all_ratings_reviews(params[:id])
+  # @investor_ratings_by_id = find_all_ratings_by_investor_id(params[:id])
   
   #   <div>  
-  #   <% @investor_ratings.each do |rating_review| %> 
+  #   <% @investor_ratings_by_id.each do |rating_review| %> 
   #     <p><%=rating_review["rating"] %> </p>
   #     <p><%=rating_review["review"] %> </p> 
   #     <% end %>
   # </div>
+
+
 
   # for the form WORKING DON'T TOUCH:
   @investor_ratings = find_one_rating_review(params[:id])
@@ -153,6 +155,18 @@ post '/tell_me_more' do
   erb :thanks
 end
 
+
+
+# filler text
+
+# <h3>2</h3>
+# <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quo dicta sit? Asperiores architecto quia beatae quas pariatur provident? Quia quisquam, eligendi nihil dolor alias adipisci neque dignissimos temporibus!</p>
+
+# <h3>4</h3>
+# <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem corporis quas illo! Quis dignissimos iure sequi nisi. Ratione, dolore! Accusantium, est quo. Vel recusandae porro deleniti et sapiente, pariatur nulla!</p>
+
+# <h3>3</h3>
+# <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cupiditate inventore nemo incidunt corrupti ducimus ad rem, distinctio ullam rerum totam repudiandae possimus eum sint temporibus ipsam, consectetur deleniti perspiciatis?</p>
 
 
 

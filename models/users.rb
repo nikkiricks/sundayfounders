@@ -27,6 +27,7 @@ def create_user(email, password)
 
   sql =  "INSERT INTO users (email, password_digest) "
   sql += "VALUES ('#{email}', '#{password_digest}');"
+  
   return run_sql(sql)
 end
 

@@ -7,15 +7,14 @@
 
 <h1>RATINGS & REVIEWS</h1>
 
-<h3>2</h3>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quo dicta sit? Asperiores architecto quia beatae quas pariatur provident? Quia quisquam, eligendi nihil dolor alias adipisci neque dignissimos temporibus!</p>
+<%@investor_ratings.each do |investor_id|%>
+      <h3><%=investor_id["rating"].to_s %> </h3>
+      <p><%=investor_id["review"] %> </p> 
+<%end%>
+ 
 
-<h3>4</h3>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem corporis quas illo! Quis dignissimos iure sequi nisi. Ratione, dolore! Accusantium, est quo. Vel recusandae porro deleniti et sapiente, pariatur nulla!</p>
 
-<h3>3</h3>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cupiditate inventore nemo incidunt corrupti ducimus ad rem, distinctio ullam rerum totam repudiandae possimus eum sint temporibus ipsam, consectetur deleniti perspiciatis?</p>
-
+<h2>Your rating and review!</h2>
   <form action="/rate_review" method="post">
   <input type="hidden" name="_method" value="post">
   <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
