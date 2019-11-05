@@ -16,6 +16,8 @@ post '/create_investor' do
 end
 
 get '/investor_details' do
+  # testing code
+  # "investor id is: #{(params[:id])}" 
   @investor = find_one_investor(params[:id])
   @user = find_one_user(params[:user_id])
   @investor_ratings = find_one_rating_review(params[:id])

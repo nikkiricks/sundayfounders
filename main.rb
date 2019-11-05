@@ -36,18 +36,31 @@ end
 
 
 post '/rate_review' do
-  @investor = find_one_investor(params[:id])
-  @user = find_one_user(params[:id])
-  @investor_ratings = find_one_rating_review(params[:id])
 
-  rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
+  #slowly working on interpolation of ratings and reviews for each investor! needing to figure out were to get it from
+ # @investor_ratings = all_ratings_reviews(params[:id])
+  
+  #   <div>  
+  #   <% @investor_ratings.each do |rating_review| %> 
+  #     <p><%=rating_review["rating"] %> </p>
+  #     <p><%=rating_review["review"] %> </p> 
+  #     <% end %>
+  # </div>
+
+  # for the form WORKING DON'T TOUCH:
+  @investor_ratings = find_one_rating_review(params[:id])
+  @investor = find_one_investor(params[:id])
+  # @user = find_one_user(params[:id])
+
+  # rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
+  rate_review(params[:investor_id], params[:rating], params[:review] )
   #make a new request on behalf of the client
   # redirect is a get /
   redirect "/investor_details?id=#{params[:id] }"
 
 
 
-  # insert code later
+  # insert in ERB & update ratings.rb once login is figured out, then I can use the user_id
 
 #   <form action="/rate_review" method="post">
 #   <input type="hidden" name="_method" value="post">
@@ -71,6 +84,8 @@ post '/rate_review' do
 # </form>
 
 # <%= @investor[:name] %>
+
+
 
 end
 
