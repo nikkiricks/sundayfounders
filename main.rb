@@ -41,6 +41,16 @@ get '/investors' do
   erb :investors
 end
 
+post '/create_investor' do
+
+  create_investor(params[:name], params[:url], params[:logo_url], params[:portfolio_size], params[:fum] )
+  
+  #make a new request on behalf of the client
+  # redirect is a get /
+  redirect '/investors'
+
+end
+
 get '/investor_details' do
   @investor = find_one_investor(params[:id])
   @investor_ratings = find_one_rating_review(params[:id])
@@ -100,6 +110,17 @@ end
 
 
 #pages for later
+
+
+
+
+
+
+
+
+
+
+
 
 
 # pages I probably won't use
