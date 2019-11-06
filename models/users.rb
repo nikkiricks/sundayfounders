@@ -38,3 +38,4 @@ end
 def  update_user (id)
   return run_sql("UPDATE users SET email = '#{params[:email]}', WHERE id = #{params[:id]};")
 end
+

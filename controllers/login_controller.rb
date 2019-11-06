@@ -46,3 +46,18 @@ delete '/logout' do
   redirect "/login"
 end
 
+delete '/delete_user' do
+  # session[:user_id] = nil
+  @delete_user = delete_user(params[:id])
+
+  # Add in once I figure out the delete feature
+
+#   <form action="/delete_user" method="post">
+#   <input type="hidden" name="_method" value="delete">
+#   <input type="hidden" name="id" value="<%= @delete_user["id"]%>">
+#   <button>delete</button>
+# </form>
+
+  redirect "/investors"
+end
+
