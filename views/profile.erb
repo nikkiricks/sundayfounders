@@ -6,10 +6,19 @@
 <br>
 <br>
 <br>
-<h1>Welcome to your profile page, <%= @user["email"] %>!</h1>
+<h1>Welcome to your profile page, <%= current_user["email"] %>!</h1>
 
 <h2>Here's your list of ratings and reviews</h2>
 
+<%#= @list_all_user_ratings_reviews["rating"].to_i%>
+<%#= @list_all_user_ratings_reviews["review"]%>
+
+<% @list_all_user_ratings_reviews.each do |user_id| %>
+        <h3><%= user_id["rating"] %> </h3>
+        <p><%= user_id["review"] %> </p> 
+        <a href="">edit</a>
+        <a href="">delete</a>
+  <% end %>
 
 <h2>We would love to get to know you more...</h2>
 

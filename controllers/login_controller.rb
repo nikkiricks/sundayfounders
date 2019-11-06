@@ -6,9 +6,12 @@ end
 post '/signup' do
 
   create_user(params[:email], params[:password] )
+  user = find_user_by_email(params[:email])
+  session[:user_id] = user["id"] #single source of truth
   # redirect '/'
-  redirect '/login'
-  # redirect "/profile?id=#{params[:id]}"
+  redirect '/investors'
+
+  # redirect "/profile"
 end
 
 
@@ -29,7 +32,7 @@ post '/login' do
     session[:user_id] = user["id"] #single source of truth
     # redirect to secret location
     # "/profile?id=#{params[:id]}"
-    redirect "/investors" #eventually have user go to user dashboards
+    redirect "/profile" #eventually have user go to user dashboards
   else
     return "It's in the database but it doesn't work"
   end

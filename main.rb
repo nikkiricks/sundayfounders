@@ -56,11 +56,10 @@ post '/rate_review' do
 end
 
 get '/profile' do
-  @user = find_one_user(params[:id])
+  @list_all_user_ratings_reviews = all_user_ratings_reviews(session[:user_id])
+  # @user = find_one_user(params[:id])
   # session[:user_id] = user["id"]
   # once user is logged in
-  # have user_dashboard show nav bar anchor <a href="/profile">Profile</a>
-  # insert email of user at the top
   # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
   erb :profile
 end

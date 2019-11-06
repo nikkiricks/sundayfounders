@@ -44,12 +44,12 @@ I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJq
 
 ## Challenges
 
-* Understanding how to get the two databases to talk to one another
+* Understanding how to get the three databases to talk to one another
 * Login process and deciding what information I wanted the user to be able to see before signing-up.
 
 ## Lessons learned
 
-* 
+* Trello board was really fantastic to have. I created boards for needed features, bonus features, ones that needed immediate attention. I also created pseudocode boards to help with creating new methods between the models, controllers and erb files, this helped a lot. 
 
 ## Unsolved problems and bonus features
 
