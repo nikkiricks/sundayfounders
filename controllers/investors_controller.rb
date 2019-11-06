@@ -18,9 +18,13 @@ end
 get '/investor_details' do
   # testing code
   # "investor id is: #{(params[:id])}" 
+
+
   @investor = find_one_investor(params[:id])
   @user = find_one_user(params[:user_id])
   @investor_ratings = find_one_rating_review(params[:id])
+  @all_investor_ratings = find_all_ratings_by_investor_id(params[:id])
+
   erb :investor_details
 end
 
@@ -28,7 +32,7 @@ patch '/update_investor' do
   update_investor(params[:id])
 
   # redirect '/'
-  redirect "/investor_details?id=#{params[:id] }"
+  redirect "/investor_details?investor_id=#{params[:id] }"
 end
 
 delete '/delete_investor' do

@@ -37,57 +37,20 @@ end
 
 post '/rate_review' do
 
-  #slowly working on interpolation of ratings and reviews for each investor! needing to figure out were to get it from
-  # @investor_ratings_by_id = find_all_ratings_by_investor_id(params[:id])
-  
-  #   <div>  
-  #   <% @investor_ratings_by_id.each do |rating_review| %> 
-  #     <p><%=rating_review["rating"] %> </p>
-  #     <p><%=rating_review["review"] %> </p> 
-  #     <% end %>
-  # </div>
-
-
-
   # for the form WORKING DON'T TOUCH:
   @investor_ratings = find_one_rating_review(params[:id])
   @investor = find_one_investor(params[:id])
-  # @user = find_one_user(params[:id])
+  #@user = find_one_user(params[:id])
 
-  # rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
+  #code with user_id
+  #rate_review(params[:investor_id], params[:user_id], params[:rating], params[:review] )
+  #insert code to erb form at the end of the input lines:   <input type="hidden" name="user_id" value="<%=@user["id"]%>">
+
+  # code without the user_id
   rate_review(params[:investor_id], params[:rating], params[:review] )
   #make a new request on behalf of the client
   # redirect is a get /
   redirect "/investor_details?id=#{params[:id] }"
-
-
-
-  # insert in ERB & update ratings.rb once login is figured out, then I can use the user_id
-
-#   <form action="/rate_review" method="post">
-#   <input type="hidden" name="_method" value="post">
-#   <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
-#   <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
-#   <input type="hidden" name="user_id" value="<%=@user["id"]%>">
-
-#   <label for="">Overall rating, scale between 1-5:</label><br>
-#   <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
-#     <option value="1">1</option>
-#     <option value="2">2</option>
-#     <option value="3">3</option>
-#     <option value="4">4</option>
-#     <option value="5">5</option>
-#   </select><br>
-#   <label for="">Review</label><br>
-#   <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50">
-#     Write your review here.
-#   </textarea><br>
-#   <button>Submit</button>
-# </form>
-
-# <%= @investor[:name] %>
-
-
 
 end
 
