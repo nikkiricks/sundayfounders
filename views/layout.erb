@@ -37,6 +37,15 @@
   
   </div>
 
+  <footer>
+    <p> Sign up for our <%= %w(AWESOME AMAZING TRANSPARENT).sample %> newsletter:  </p>
+    <form action="/tell_me_more" method="post">
+      <input type="hidden" name="keyword" value="<%= @keyword %>" />
+      <input type="email" name="email" placeholder="Enter your email" />
+      <input type="submit" name="submit_button" value="submit"  />
+
+    </form>
+  </footer>
 
 </body>
 </html>

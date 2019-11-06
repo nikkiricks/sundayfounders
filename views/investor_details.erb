@@ -4,6 +4,7 @@
 <p>Website: <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a> </p>
 <p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
 <p>FUM: $<%= @investor["fum"]%>M </p>
+<p>Type of fund: <%= @investor["type"]%> </p>
 
 
 <h1>RATINGS & REVIEWS</h1>
@@ -69,6 +70,14 @@
     <input type="text" name="portfolio_size" value="<%=@investor["portfolio_size"]%>"><br>
     <label for="">Funds Under Management (FUM)</label><br>
     <input type="text" name="fum" value="<%=@investor["fum"]%>"><br>
+    <label for="">Investor Type</label> <br>
+    <select type="text" name="type" value="<%=@investor["type"]%>">
+      <option value="Angel Group">Angel Group</option>
+      <option value="Angel Individual">Angel Individual</option>
+      <option value="Family Office">Family Office</option>
+      <option value="Equity Crowd Source Funding">Equity Crowd Source Funding</option>
+      <option value="Venture Capital Firm">Venture Capital Firm</option>
+    </select><br>
     <button>Update</button>
   </form>
 

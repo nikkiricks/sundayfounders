@@ -30,8 +30,10 @@ require_relative 'models/users'
 
 enable :sessions
 
+@keyword = %w(Awesome Amazing Transparent).sample
 
 get '/' do
+  
   erb :index
 end 
 
@@ -120,16 +122,6 @@ end
 
 
 
-# filler text
-
-# <h3>2</h3>
-# <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quo dicta sit? Asperiores architecto quia beatae quas pariatur provident? Quia quisquam, eligendi nihil dolor alias adipisci neque dignissimos temporibus!</p>
-
-# <h3>4</h3>
-# <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem corporis quas illo! Quis dignissimos iure sequi nisi. Ratione, dolore! Accusantium, est quo. Vel recusandae porro deleniti et sapiente, pariatur nulla!</p>
-
-# <h3>3</h3>
-# <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cupiditate inventore nemo incidunt corrupti ducimus ad rem, distinctio ullam rerum totam repudiandae possimus eum sint temporibus ipsam, consectetur deleniti perspiciatis?</p>
 
 
 

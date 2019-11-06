@@ -9,7 +9,8 @@ CREATE TABLE investors (
   url TEXT,
   logo_url TEXT,
   portfolio_size TEXT,
-  fum TEXT
+  fum TEXT,
+  type TEXT
 );
 
 CREATE TABLE investor_ratings (
@@ -26,7 +27,7 @@ CREATE TABLE users (
   password_digest TEXT
 );
 
-SELECT investor_id FROM investor_ratings;
+SELECT type FROM investor_ratings;
 
 DROP TABLE users;
 
@@ -34,8 +35,15 @@ DELETE FROM users WHERE id = 'kay';
 
 DELETE FROM users WHERE id between 0 and 17;
 
+
+ALTER TABLE investors ADD COLUMN type TEXT;
 ALTER TABLE investors ADD COLUMN portfolio_size TEXT;
 ALTER TABLE investors ADD COLUMN fum TEXT;
+
+UPDATE investors SET type = 'venture capital' WHERE name = 'Artesian';
+UPDATE investors SET type = 'venture capital' WHERE name = 'Airtree';
+UPDATE investors SET type = 'venture capital' WHERE name = 'Blackbird';
+UPDATE investors SET type = 'venture capital' WHERE name = 'Rampersand';
 
 UPDATE investors SET portfolio_size = 270, fum = 250 WHERE name = 'Artesian';
 UPDATE investors SET portfolio_size = 40, fum = 250 WHERE name = 'Airtree';
