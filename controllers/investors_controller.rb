@@ -21,7 +21,7 @@ get '/investor_details' do
 
 
   @investor = find_one_investor(params[:id])
-  @user = find_one_user(params[:user_id])
+  @user = find_one_user(params[:id])
   @investor_ratings = find_one_rating_review(params[:id])
   @all_investor_ratings = find_all_ratings_by_investor_id(params[:id])
   @investor_ratings_only = find_only_ratings_by_investor_id(params[:id])
