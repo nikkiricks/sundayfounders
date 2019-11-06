@@ -117,7 +117,7 @@ post '/tell_me_more' do
     f.write "#{Time.now},#{email},#{keyword}\n "
   end
 
-  erb :thanks
+  redirect '/'
 end
 
 
