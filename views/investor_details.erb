@@ -49,7 +49,7 @@
     <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
   <% end %>
 
-<h3>Oops! Did we get the informaton wrong? Help us update it...</h3>
+<h3>Oops! Did we get the informaton wrong? <br>Help us update it...</h3>
 <% if logged_in? %>
   <form action="/update_investor" method="post">
     <input type="hidden" name="_method" value="patch">

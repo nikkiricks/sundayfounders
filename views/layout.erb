@@ -10,6 +10,8 @@
 
   <% if logged_in? %>
     <p>logged in as <%= current_user["email"] %> </p>
+    <a href="/profile?id=<%= current_user["id"]  %> ">Profile Page</a>
+    <a href="/">Settings</a>
     <form action="/logout" method="post" >
       <input type="hidden" name="_method" value="delete">
       <button>logout</button>
