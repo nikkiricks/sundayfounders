@@ -28,13 +28,14 @@ post '/login' do
     # write down id of login user (we usually say create a session for the user)
     session[:user_id] = user["id"] #single source of truth
     # redirect to secret location
+    # "/profile?id=#{params[:id]}"
     redirect "/investors" #eventually have user go to user dashboards
   else
     return "It's in the database but it doesn't work"
   end
   # redirect to secret location
 
-  redirect "/investors"
+  redirect "/"
 end
 
 delete '/logout' do

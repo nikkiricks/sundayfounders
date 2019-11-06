@@ -1,5 +1,6 @@
 <img src=" <%= @investor["logo_url"] %>" alt="">  
 
+<h2>Average rating: <%#= @investor_ratings_only  %>  </h2>
 <p>Website: <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a> </p>
 <p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
 <p>FUM: $<%= @investor["fum"]%>M </p>
@@ -9,7 +10,7 @@
 
 <% if @all_investor_ratings %>
   <% @all_investor_ratings.each do |investor_id| %>
-        <h3><%= investor_id["rating"].to_s %> </h3>
+        <h3><%= investor_id["rating"] %> </h3>
         <p><%= investor_id["review"] %> </p> 
   <% end %>
 <% else %>
