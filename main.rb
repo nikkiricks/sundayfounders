@@ -1,13 +1,12 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
 require 'pg'
 
 if settings.development?
   require 'pry'
   require 'sinatra/reloader' 
-  also_reload File.expand_path(_dir_, 'models/*')
-  also_reload File.expand_path(_dir_, 'controllers/*')
+  also_reload File.expand_path(__dir__, 'models/*')
+  also_reload File.expand_path(__dir__, 'controllers/*')
 end
 
 def run_sql(sql)
