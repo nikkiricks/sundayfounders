@@ -57,6 +57,8 @@ ALTER TABLE investors ADD COLUMN type TEXT;
 ALTER TABLE investors ADD COLUMN portfolio_size TEXT;
 ALTER TABLE investors ADD COLUMN fum TEXT;
 
+UPDATE investors SET name = 'Artesian' WHERE name = 'Artesian    ';
+
 UPDATE investors SET type = 'venture capital' WHERE name = 'Artesian';
 UPDATE investors SET type = 'venture capital' WHERE name = 'Airtree';
 UPDATE investors SET type = 'venture capital' WHERE name = 'Blackbird';

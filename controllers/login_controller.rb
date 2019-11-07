@@ -34,7 +34,7 @@ post '/login' do
     # "/profile?id=#{params[:id]}"
     redirect "/my_ratings" #eventually have user go to user dashboards
   else
-    return "It's in the database but it doesn't work"
+    return "No frynuts"
   end
   # redirect to secret location
 
@@ -46,18 +46,32 @@ delete '/logout' do
   redirect "/login"
 end
 
-delete '/delete_user' do
-  # session[:user_id] = nil
-  @delete_user = delete_user(params[:id])
-
-  # Add in once I figure out the delete feature
-
-#   <form action="/delete_user" method="post">
-#   <input type="hidden" name="_method" value="delete">
-#   <input type="hidden" name="id" value="<%= @delete_user["id"]%>">
-#   <button>delete</button>
-# </form>
-
-  redirect "/investors"
+get '/my_ratings' do
+  @list_all_user_ratings_reviews = all_user_ratings_reviews(session[:user_id])
+  # @user = find_one_user(params[:id])
+  # session[:user_id] = user["id"]
+  # once user is logged in
+  # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
+  erb :my_ratings
 end
 
+get '/settings' do
+
+  erb :settings
+end
+
+patch '/update_user' do
+  update_user(params[:id])
+
+  redirect '/settings'
+end
+
+delete '/delete_user' do
+  #session[:user_id] = nil
+  delete_user(params[:email])
+  session[:user_id] = nil
+
+
+  # Add in once I figure out the delete feature
+  redirect "/investors"
+end

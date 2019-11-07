@@ -57,21 +57,6 @@ post '/rate_review' do
 
 end
 
-get '/my_ratings' do
-  @list_all_user_ratings_reviews = all_user_ratings_reviews(session[:user_id])
-  # @user = find_one_user(params[:id])
-  # session[:user_id] = user["id"]
-  # once user is logged in
-  # possibly have another form for the user to insert/post more information about themselves like Name, City, Gender, Industry, etc.
-  erb :my_ratings
-end
-
-get '/settings' do
-  session[:user_id]
-
-  erb :settings
-end
-
 
 
 

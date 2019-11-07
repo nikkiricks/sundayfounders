@@ -6,6 +6,17 @@
 <br>
 <br>
 <br>
+<h2>Update your information:</h2>
+<form action="/update_user" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="id" value="<%= current_user["id"] %>">
+
+  <label for="">email</label><br>
+  <input type="text" name="email" value="<%= current_user["email"] %>"> <br>
+  <button>Update</button>
+</form>
+
+
 <h2>We would love to get to know you more...</h2>
 
 <form action="">
@@ -29,7 +40,9 @@
   <button>submit</button>
 </form>
 
-<p>Interested in leaving us? We're sorry to see you go but respect your decision: </p>
-
-
-<button>delete account</button>
+<p>Interested in leaving us? We're sorry to see you go...</p>
+<form action="/delete_user" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="email" value="<%= current_user["email"]%>">
+  <button>delete</button>
+</form>

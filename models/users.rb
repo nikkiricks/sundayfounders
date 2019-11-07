@@ -31,11 +31,12 @@ def create_user(email, password)
   return run_sql(sql)
 end
 
-def delete_user (id)
-  return run_sql( "DELETE FROM users WHERE id = #{id};")
+def delete_user (email)
+  return run_sql("DELETE FROM users WHERE email = '#{email}';")
 end
 
+
 def  update_user (id)
-  return run_sql("UPDATE users SET email = '#{params[:email]}', WHERE id = #{params[:id]};")
+  return run_sql("UPDATE users SET email = '#{params[:email]}' WHERE id = #{params[:id]};")
 end
 
