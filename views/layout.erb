@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Sunday Founders</title>
-  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link rel='stylesheet' href='/public/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="logged-in-nav">
+    <div class="nav">
+      <% if logged_in? %>
+        <p>Hi, <%= current_user["email"] %>!</p>
+        <a href="/my_ratings">MY RATINGS</a>
+        <a href="/settings">SETTINGS</a>
+        <form action="/logout" method="post" >
+          <input type="hidden" name="_method" value="delete">
+          <button>logout</button>
+        </form>
+      <% end %>
+    </div>
+  </div>
 
-  <% if logged_in? %>
-    <p>Hi, <%= current_user["email"] %>!</p>
-    <a href="/my_ratings">MY RATINGS | </a>
-    <a href="/settings">SETTINGS | </a>
-    <form action="/logout" method="post" >
-      <input type="hidden" name="_method" value="delete">
-      <button>logout</button>
-    </form>
-  <% end %>
+
+  <div class="main-nav">
+      <nav class="nav">
+          <a class="nav-item" href="/">home</a>
+          <a class="nav-item" href="/investors">investors</a>
+          <a class="nav-item" href="/signup">signup</a>
+          <a class="nav-item" href="/login">login</a>
+      </nav>
+  </div>
+
 
   <header>
     <h1>Sunday Founders</h1>
   </header>
-
-  <nav>
-    <a href="/">home | </a>
-    <a href="/investors">investors | </a>
-    <a href="/signup">signup | </a>
-    <a href="/login">login </a>
-    <!--<a href="/landing_page">landing page |</a>  
-    <a href="/login"> login |</a>-->
-  </nav>
 
 
   <div>

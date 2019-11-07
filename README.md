@@ -1,10 +1,14 @@
 # Sunday Founders
 
+[Sunday Founders Link](INSERT LINK)
+
 INSERT LINK TO FINAL HEROKU HERE
 
 A CRUD Ruby app that's a transparency platform on investors for startup founders. A place for founders to get information, and rate and review their investors.
 
-INSERT PICTURE OF FINAL WEBSITE HERE
+DEMO:
+INSERT GIF OF FINAL WEBSITE HERE
+![](INSERT.GIF)
 
 ## User story
 

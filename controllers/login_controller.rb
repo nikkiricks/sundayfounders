@@ -55,6 +55,14 @@ get '/my_ratings' do
   erb :my_ratings
 end
 
+delete '/delete_rating' do
+  delete_one_rating(params[:id])
+
+  # @list_all_user_ratings_reviews = all_user_ratings_reviews(session[:user_id])
+
+  redirect '/my_ratings'
+end
+
 get '/settings' do
 
   erb :settings
@@ -70,8 +78,6 @@ delete '/delete_user' do
   #session[:user_id] = nil
   delete_user(params[:email])
   session[:user_id] = nil
-
-
   # Add in once I figure out the delete feature
   redirect "/investors"
 end

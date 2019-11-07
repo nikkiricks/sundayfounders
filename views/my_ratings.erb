@@ -1,22 +1,27 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <h1>Welcome to your profile page, <%= current_user["email"] %>!</h1>
 
 <h2>Total submissions: <%= @list_all_user_ratings_reviews.to_a.length %> </h2>
 
 <h3>Here's your list of ratings and reviews</h3>
 
-<% @list_all_user_ratings_reviews.each do |user_id| %>
-        <h3><%= user_id["rating"] %> </h3>
-        <p><%= user_id["review"] %> </p> 
-        <a href="">edit</a>
-        <a href="">delete</a>
+<% @list_all_user_ratings_reviews.each do |investor_rating| %>
+
+
+  <h4><%= find_one_investor(investor_rating["investor_id"])["name"] %></h2>
+  <h4><%= investor_rating["rating"] %> </h4>
+  <p><%= investor_rating["review"] %> </p> 
+
+  <a href="">edit</a>
+  <p>If for whatever reason you want to remove your rating:</p>
+  <% if investor_rating["user_id"] == session[:user_id] %>
+  <form action="/delete_rating" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="id" value="<%= investor_rating["id"]%>">
+    <button>delete</button>
+  </form>
   <% end %>
+
+<% end %>
 
 <p>Have more investors to rate? <a href="/investors">click here</a> </p>

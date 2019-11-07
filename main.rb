@@ -20,6 +20,8 @@ def logged_in? #predicate method - returns a boolean
 end
 
 
+
+
 def current_user
   find_one_user(session[:user_id])
 end
@@ -66,7 +68,6 @@ require_relative 'controllers/login_controller'
 #pages for later
 
 
-# erb psydocode
 
 # figure out passwords
 # figure out log in first as posting on investor page will need user_id

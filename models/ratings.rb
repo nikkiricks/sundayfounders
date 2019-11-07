@@ -28,6 +28,10 @@ def all_user_ratings_reviews (id)
   return run_sql("SELECT * FROM investor_ratings WHERE user_id = #{id};")
 end
 
+def delete_one_rating (id)
+  return run_sql( "DELETE FROM investor_ratings WHERE id = #{id};")
+end
+
 # This is getting back all investor id
 
 def investor_avg_rating_by_id (id)
