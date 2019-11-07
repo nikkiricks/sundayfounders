@@ -32,7 +32,7 @@ post '/login' do
     session[:user_id] = user["id"] #single source of truth
     # redirect to secret location
     # "/profile?id=#{params[:id]}"
-    redirect "/profile" #eventually have user go to user dashboards
+    redirect "/my_ratings" #eventually have user go to user dashboards
   else
     return "It's in the database but it doesn't work"
   end

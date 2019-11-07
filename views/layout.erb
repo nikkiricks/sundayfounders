@@ -9,8 +9,9 @@
 <body>
 
   <% if logged_in? %>
-    <p>logged in as <%= current_user["email"] %> </p>
-    <a href="/profile">Profile Page</a>
+    <p>Hi, <%= current_user["email"] %>!</p>
+    <a href="/my_ratings">MY RATINGS | </a>
+    <a href="/settings">SETTINGS | </a>
     <form action="/logout" method="post" >
       <input type="hidden" name="_method" value="delete">
       <button>logout</button>

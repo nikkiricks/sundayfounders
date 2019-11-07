@@ -1,0 +1,22 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Welcome to your profile page, <%= current_user["email"] %>!</h1>
+
+<h2>Total submissions: <%= @list_all_user_ratings_reviews.to_a.length %> </h2>
+
+<h3>Here's your list of ratings and reviews</h3>
+
+<% @list_all_user_ratings_reviews.each do |user_id| %>
+        <h3><%= user_id["rating"] %> </h3>
+        <p><%= user_id["review"] %> </p> 
+        <a href="">edit</a>
+        <a href="">delete</a>
+  <% end %>
+
+<p>Have more investors to rate? <a href="/investors">click here</a> </p>
