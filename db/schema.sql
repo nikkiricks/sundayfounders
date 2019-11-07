@@ -27,6 +27,22 @@ CREATE TABLE users (
   password_digest TEXT
 );
 
+SELECT
+  investor_id,
+  to_char (
+    AVG (rating), 
+    '9D9'
+  ) AS average_rating
+FROM
+  investor_ratings
+GROUP BY
+  investor_ratings.rating;
+
+
+SELECT investor_id, to_char(AVG(rating),'9D9') AS average_rating FROM investor_ratings GROUP BY investor_id;
+
+
+
 SELECT type FROM investor_ratings;
 
 DROP TABLE users;

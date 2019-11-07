@@ -27,3 +27,4 @@ end
 def delete_investor (id)
   return run_sql( "DELETE FROM investors WHERE id = #{id};")
 end
+

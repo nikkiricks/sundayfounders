@@ -24,7 +24,7 @@ get '/investor_details' do
   @user = find_one_user(params[:id])
   @investor_ratings = find_one_rating_review(params[:id])
   @all_investor_ratings = find_all_ratings_by_investor_id(params[:id])
-  @investor_ratings_only = find_only_ratings_by_investor_id(params[:id])
+  @investor_ratings_only = investor_avg_rating_by_id(params[:id])
 
 
   #TRYING TO FIGURE OUT AVERAGE TOTAL:

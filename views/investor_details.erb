@@ -1,6 +1,6 @@
 <img src=" <%= @investor["logo_url"] %>" alt="">  
 
-<h2>Average rating: <%#= @investor_ratings_only  %>  </h2>
+<h1><%= @investor_ratings_only.first["to_char"]  %>  </h1>
 <p>Website: <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a> </p>
 <p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
 <p>FUM: $<%= @investor["fum"]%>M </p>
