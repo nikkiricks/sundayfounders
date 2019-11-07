@@ -1,10 +1,3 @@
-def run_sql(sql)
-  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: "sundayfounders"})
-  records = conn.exec(sql)
-  conn.close
-  return records
-end
-
 def all_ratings_reviews()
   return run_sql( "SELECT * FROM investor_ratings;") 
 end

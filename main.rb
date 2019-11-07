@@ -4,10 +4,17 @@ require 'sinatra/reloader'
 require 'pg'
 
 if settings.development?
-  require 'sinatra/reloader' 
-  also_reload 'models/*' 
-  also_reload 'controllers/*' 
   require 'pry'
+  require 'sinatra/reloader' 
+  also_reload File.expand_path(_dir_, 'models/*')
+  also_reload File.expand_path(_dir_, 'controllers/*')
+end
+
+def run_sql(sql)
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: "sundayfounders"})
+  records = conn.exec(sql)
+  conn.close
+  return records
 end
 
 def logged_in? #predicate method - returns a boolean
