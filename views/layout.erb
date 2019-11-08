@@ -10,9 +10,9 @@
   <div class="logged-in-nav">
     <div class="nav">
       <% if logged_in? %>
-        <p>Hi, <%= current_user["email"] %>!</p>
-        <a href="/my_ratings">MY RATINGS</a> <br>
-        <a href="/settings">SETTINGS</a>
+        <p class="login-email-nav">Hi, <%= current_user["email"] %>!</p>
+        <a href="/my_ratings">my ratings</a> <br>
+        <a href="/settings">settings</a>
         <form action="/logout" method="post" >
           <input type="hidden" name="_method" value="delete">
           <button>logout</button>

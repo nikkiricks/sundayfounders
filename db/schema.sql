@@ -48,7 +48,7 @@ SELECT type FROM investor_ratings;
 DROP TABLE users;
 
 
-DELETE FROM investors WHERE id = 10;
+DELETE FROM investors WHERE id = 3;
 
 DELETE FROM users WHERE id between 0 and 17;
 

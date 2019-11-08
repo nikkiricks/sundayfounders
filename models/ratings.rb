@@ -14,7 +14,7 @@ end
 
 
 def rate_review (investor_id, user_id, rating, review)
-  return run_sql("INSERT INTO investor_ratings (investor_id, user_id, rating, review) VALUES (#{investor_id}, #{user_id}, #{rating}, '#{review}');")
+  return run_sql("INSERT INTO investor_ratings (investor_id, user_id, rating, review) VALUES (#{investor_id}, #{user_id}, #{rating}, $#{review}$);")
 end
 
 def all_user_ratings_reviews (id)

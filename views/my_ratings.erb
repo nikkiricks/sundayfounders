@@ -7,13 +7,15 @@
 <br>
 <% @list_all_user_ratings_reviews.each do |investor_rating| %>
 
-
-  <h4><%= find_one_investor(investor_rating["investor_id"])["name"] %></h2>
+<br>
+  <h4><%= find_one_investor(investor_rating["investor_id"])["name"] %>
+  <br>
+  <br>
   <h4 class = "individual-rating"><%= investor_rating["rating"] %> </h4>
   <p><%= investor_rating["review"] %> </p> 
 
   <% if investor_rating["user_id"] == session[:user_id] %>
-  <form action="/delete_rating" method="post">
+  <form class="my-delete" action="/delete_rating" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="hidden" name="id" value="<%= investor_rating["id"]%>">
     <button>delete</button>
@@ -22,4 +24,4 @@
 
 <% end %>
 
-<p>Have more investors to rate? <a href="/investors">click here</a> </p>
+<p class="" >Have more investors to rate? <a href="/investors">click here</a> </p>
