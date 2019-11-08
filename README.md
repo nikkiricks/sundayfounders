@@ -4,8 +4,6 @@
 
 A CRUD Ruby app that's a transparency platform on investors for startup founders. A place for founders to get information, and rate and review their investors.
 
-DEMO:
-INSERT GIF OF FINAL WEBSITE HERE
 ![](images/sf_screenshot.png)
 
 ## User story
@@ -48,11 +46,13 @@ I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJq
 
 * Understanding how to get the three databases to talk to one another
 * Login process and deciding what information I wanted the user to be able to see before signing-up.
+* Looping through certain methods created and understanding arrays and hashes.
 
 ## Lessons learned
 
 * Trello board was really fantastic to have. I created boards for needed features, bonus features, ones that needed immediate attention. This helped keep me focused.
 * I also created pseudocode boards to help with creating new methods between the sql, models, controllers and erb files, this helped break down the flow of where I needed to update and change my code.
+* Writing a user story was really nice to know how to prioritize information and features.
 
 ## Unsolved problems and bonus features
 
