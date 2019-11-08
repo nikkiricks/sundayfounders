@@ -11,7 +11,7 @@
     <div class="nav">
       <% if logged_in? %>
         <p>Hi, <%= current_user["email"] %>!</p>
-        <a href="/my_ratings">MY RATINGS</a>
+        <a href="/my_ratings">MY RATINGS</a> <br>
         <a href="/settings">SETTINGS</a>
         <form action="/logout" method="post" >
           <input type="hidden" name="_method" value="delete">
@@ -20,7 +20,6 @@
       <% end %>
     </div>
   </div>
-
 
   <div class="heading-nav">
     <a href="/"><img class="logo" src="https://static1.squarespace.com/static/5c386d5c697a98c3d98b4739/t/5d2bed06d13ca700016d6e5a/1568856640013/?format=1500w" alt=""></a>
@@ -45,19 +44,20 @@
 
 
 
-  <div>
+  <div class="main-yield">
   
     <%= yield %>  
   
   </div>
 
   <footer>
-    <p> Sign up for our <%= %w(AWESOME AMAZING TRANSPARENT).sample %> newsletter:  </p>
+
+    <p class="signup-text"> Sign up for our <%= %w(AWESOME AMAZING TRANSPARENT).sample %> newsletter:  </p>
+
     <form action="/tell_me_more" method="post">
       <input type="hidden" name="keyword" value="<%= @keyword %>" />
       <input type="email" name="email" placeholder="Enter your email" />
       <input type="submit" name="submit_button" value="submit"  />
-
     </form>
   </footer>
 

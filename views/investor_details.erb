@@ -1,35 +1,95 @@
 
-<div class="details-top">
-  <div class="investor-logo">
-    <img src="<%= @investor["logo_url"] %>" alt="">  
+<div class="id-container">
+  <div class="id-left">
+    <div class="investor-logo">
+      <img src="<%= @investor["logo_url"] %>" alt="">  
+    </div>
+    <div class="user-rating-input">
+      <h2>Leave your rating and review!</h2>
+        <% if logged_in? %>
+          <form action="/rate_review" method="post">
+            <input type="hidden" name="_method" value="post">
+            <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
+            <label for="">Overall rating, scale between 1-5:</label><br>
+            <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select><br>
+            <label for="">Review</label><br>
+            <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50" placeholder="Write your review here. Feel free to include information on the type of connection you have with the investor, what your interaction was like, and any other details you feel would help others..."></textarea><br>
+            <button>Submit</button>
+          </form>
+
+        <% else %>
+          <p>Looks like you're not logged in. <br> 
+          <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
+        <% end %>
+      </div>
   </div>
-  <div class="investor-listed-details">
-    <h1><%= @investor_ratings_only.first["to_char"]  %>  </h1>
-    <p>Website: <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a> </p>
-    <p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
-    <p>FUM: $<%= @investor["fum"]%>M </p>
-    <p>Type of fund: <%= @investor["type"]%> </p>  
+
+  <div class="id-right">
+    <div class="investor-listed-details">
+        <h1 class="investor-avg-rating" ><%= @investor_ratings_only.first["to_char"]  %></h1>
+        <p>Website: <a href= <%= @investor["url"]%> > <%= @investor["name"]%></a> </p>
+        <p>Portfolio size: <%= @investor["portfolio_size"]%> </p>
+        <p>FUM: $<%= @investor["fum"]%>M </p>
+        <p>Type of fund: <%= @investor["type"]%> </p>  
+      </div>
+
+
   </div>
+
 </div>
 
 <div class="rating-boxes">
-  <h2>Leave your rating and review!</h2>
+
+  <div class="ratings-review">
+    <h1 class="rating-review-h1">RATINGS & REVIEWS</h1>
+    <div >
+      <% if @all_investor_ratings == nil %>
+        <h2>There are no ratings! Leave one below...</h2>    
+      <% else %>
+        <% @all_investor_ratings.each do |investor_id| %>
+            <h3 class = "individual-rating"><%= investor_id["rating"] %> </h3>
+            <p class="listed-rr"><%= investor_id["review"] %> </p> 
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<div class="id-updates">
+  <div class="id-update-box">
+
+    <h3>Oops! Did we get the informaton wrong? <br>Help us update it...</h3>
     <% if logged_in? %>
-      <form action="/rate_review" method="post">
-        <input type="hidden" name="_method" value="post">
-        <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
-        <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
-        <label for="">Overall rating, scale between 1-5:</label><br>
-        <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+      <form action="/update_investor" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="id" value="<%=@investor["id"]%>">
+
+        <label for="">name</label><br>
+        <input type="text" name="name" value="<%=@investor["name"]%>" ><br>
+        <label for="">url</label><br>
+        <input type="text" name="url" value="<%=@investor["url"]%>"><br>
+        <label for="">logo url</label><br>
+        <input type="text" name="logo_url" value="<%=@investor["logo_url"]%>  " ><br>
+        <label for="">Portfolio Size</label><br>
+        <input type="text" name="portfolio_size" value="<%=@investor["portfolio_size"]%>"><br>
+        <label for="">Funds Under Management (FUM)</label><br>
+        <input type="text" name="fum" value="<%=@investor["fum"]%>"><br>
+        <label for="">Investor Type</label> <br>
+        <select type="text" name="type" value="<%=@investor["type"]%>">
+          <option value="Angel Group">Angel Group</option>
+          <option value="Angel Individual">Angel Individual</option>
+          <option value="Family Office">Family Office</option>
+          <option value="Equity Crowd Source Funding">Equity Crowd Source Funding</option>
+          <option value="Venture Capital Firm">Venture Capital Firm</option>
         </select><br>
-        <label for="">Review</label><br>
-        <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50" placeholder="Write your review here. Feel free to include information on the type of connection you have with the investor, what your interaction was like, and any other details you feel would help others..."></textarea><br>
-        <button>Submit</button>
+        <button>Update</button>
       </form>
 
     <% else %>
@@ -37,62 +97,17 @@
       <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
     <% end %>
 
-  <div class="ratings-review">
-    <h1>RATINGS & REVIEWS</h1>
+    <h3>Feel this investor needs to be deleted?</h3>
+    <% if logged_in? %>
+      <form action="/delete_investor" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<%= @investor["id"]%>">
+        <button>delete</button>
+      </form>
 
-    <% if @all_investor_ratings == nil %>
-        <h2>There are no ratings! Leave one below...</h2>    
     <% else %>
-      <% @all_investor_ratings.each do |investor_id| %>
-          <h3><%= investor_id["rating"] %> </h3>
-          <p><%= investor_id["review"] %> </p> 
-      <% end %>
+      <p>Looks like you're not logged in. <br> 
+      <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
     <% end %>
   </div>
 </div>
-
-
-<h3>Oops! Did we get the informaton wrong? <br>Help us update it...</h3>
-<% if logged_in? %>
-  <form action="/update_investor" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="id" value="<%=@investor["id"]%>">
-
-    <label for="">name</label><br>
-    <input type="text" name="name" value="<%=@investor["name"]%>" ><br>
-    <label for="">url</label><br>
-    <input type="text" name="url" value="<%=@investor["url"]%>"><br>
-    <label for="">logo url</label><br>
-    <input type="text" name="logo_url" value="<%=@investor["logo_url"]%>  " ><br>
-    <label for="">Portfolio Size</label><br>
-    <input type="text" name="portfolio_size" value="<%=@investor["portfolio_size"]%>"><br>
-    <label for="">Funds Under Management (FUM)</label><br>
-    <input type="text" name="fum" value="<%=@investor["fum"]%>"><br>
-    <label for="">Investor Type</label> <br>
-    <select type="text" name="type" value="<%=@investor["type"]%>">
-      <option value="Angel Group">Angel Group</option>
-      <option value="Angel Individual">Angel Individual</option>
-      <option value="Family Office">Family Office</option>
-      <option value="Equity Crowd Source Funding">Equity Crowd Source Funding</option>
-      <option value="Venture Capital Firm">Venture Capital Firm</option>
-    </select><br>
-    <button>Update</button>
-  </form>
-
-<% else %>
-  <p>Looks like you're not logged in. <br> 
-  <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
-<% end %>
-
-<h3>Feel this investor needs to be deleted?</h3>
-<% if logged_in? %>
-  <form action="/delete_investor" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="hidden" name="id" value="<%= @investor["id"]%>">
-    <button>delete</button>
-  </form>
-
-<% else %>
-  <p>Looks like you're not logged in. <br> 
-  <a href="/signup">Sign up</a> to leave your rating. <br> Already signed-up? <a href="/login">Log in</a> </p>
-<% end %>

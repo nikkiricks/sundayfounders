@@ -1,14 +1,12 @@
 # Sunday Founders
 
-[Sunday Founders Link](INSERT LINK)
-
-INSERT LINK TO FINAL HEROKU HERE
+[Sunday Founders Link](https://sunday-founders.herokuapp.com/)
 
 A CRUD Ruby app that's a transparency platform on investors for startup founders. A place for founders to get information, and rate and review their investors.
 
 DEMO:
 INSERT GIF OF FINAL WEBSITE HERE
-![](INSERT.GIF)
+![](sf_screenshot.png)
 
 ## User story
 

@@ -1,10 +1,10 @@
 
-<h1>Welcome to your profile page, <%= current_user["email"] %>!</h1>
-
-<h2>Total submissions: <%= @list_all_user_ratings_reviews.to_a.length %> </h2>
-
-<h3>Here's your list of ratings and reviews</h3>
-
+<h1>Welcome, <%= current_user["email"] %>!</h1>
+<br>
+<h2>Total submissions: <span class="total-submissions"> <%= @list_all_user_ratings_reviews.to_a.length %> </span>    </h2>
+<br>
+<h2>Your list of ratings and reviews:</h2>
+<br>
 <% @list_all_user_ratings_reviews.each do |investor_rating| %>
 
 
