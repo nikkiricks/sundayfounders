@@ -9,6 +9,7 @@
         <% if logged_in? %>
           <form action="/rate_review" method="post">
             <input type="hidden" name="_method" value="post">
+            <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
             <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
             <label for="">Overall rating, scale between 1-5:</label><br>
             <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">

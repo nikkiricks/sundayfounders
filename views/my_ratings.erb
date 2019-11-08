@@ -9,11 +9,9 @@
 
 
   <h4><%= find_one_investor(investor_rating["investor_id"])["name"] %></h2>
-  <h4><%= investor_rating["rating"] %> </h4>
+  <h4 class = "individual-rating"><%= investor_rating["rating"] %> </h4>
   <p><%= investor_rating["review"] %> </p> 
 
-  <a href="">edit</a>
-  <p>If for whatever reason you want to remove your rating:</p>
   <% if investor_rating["user_id"] == session[:user_id] %>
   <form action="/delete_rating" method="post">
     <input type="hidden" name="_method" value="delete">

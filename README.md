@@ -6,7 +6,7 @@ A CRUD Ruby app that's a transparency platform on investors for startup founders
 
 DEMO:
 INSERT GIF OF FINAL WEBSITE HERE
-![](sf_screenshot.png)
+![](images/sf_screenshot.png)
 
 ## User story
 
@@ -51,9 +51,13 @@ I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJq
 
 ## Lessons learned
 
-* Trello board was really fantastic to have. I created boards for needed features, bonus features, ones that needed immediate attention. I also created pseudocode boards to help with creating new methods between the models, controllers and erb files, this helped a lot. 
+* Trello board was really fantastic to have. I created boards for needed features, bonus features, ones that needed immediate attention. This helped keep me focused.
+* I also created pseudocode boards to help with creating new methods between the sql, models, controllers and erb files, this helped break down the flow of where I needed to update and change my code.
 
 ## Unsolved problems and bonus features
 
+* Ability to search and filter investors based on certain criteria
 * I would love to make a discussion platform feature eventually, possibly using [Discourse](https://www.discourse.org/), an open source plug-in. 
-
+* Have a seperate login for investors for specific types of interactin with users.
+* Create a gamified element where users can move up to different community badge status's depending on how active they are in the community
+* Overall, spend more time on CSS making the site more elegant 
