@@ -8,11 +8,9 @@
       <h2>Leave your rating and review!</h2>
         <% if logged_in? %>
           <form action="/rate_review" method="post">
-            <input type="hidden" name="_method" value="post">
-            <input type="hidden" name="id" value="<%=@investor_ratings["id"]%>">
             <input type="hidden" name="investor_id" value="<%=@investor["id"]%>">
             <label for="">Overall rating, scale between 1-5:</label><br>
-            <select type="text" name="rating" value="<%= @investor_ratings["rating"] %>  ">
+            <select type="text" name="rating">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -20,7 +18,7 @@
               <option value="5">5</option>
             </select><br>
             <label for="">Review</label><br>
-            <textarea type="text" name="review" value="<%= @investor_ratings["review"] %>" rows="10" cols="50" placeholder="Write your review here. Feel free to include information on the type of connection you have with the investor, what your interaction was like, and any other details you feel would help others..."></textarea><br>
+            <textarea type="text" name="review" rows="10" cols="50" placeholder="Write your review here. Feel free to include information on the type of connection you have with the investor, what your interaction was like, and any other details you feel would help others..."></textarea><br>
             <button>Submit</button>
           </form>
 

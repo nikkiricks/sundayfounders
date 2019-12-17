@@ -11,15 +11,19 @@ def find_one_investor(id)
   return run_sql("SELECT * FROM investors WHERE id = #{id};").first
 end
 
-def create_investor (name, url, logo_url, portfolio_size, fum)
+def create_investor(name, url, logo_url, portfolio_size, fum)
   return run_sql("INSERT INTO investors (name, url, logo_url, portfolio_size, fum) VALUES ('#{name} ', ' #{url} ', '#{logo_url} ', ' #{portfolio_size} ', ' #{fum} ') ")
 end
 
-def  update_investor (id)
+def  update_investor(id)
   return run_sql("UPDATE investors SET name = '#{params[:name]}', url = '#{params[:url]}', logo_url = '#{params[:logo_url]}', portfolio_size = '#{params[:portfolio_size]}', fum = '#{params[:fum]}', type = '#{params[:type]}' WHERE id = #{params[:id]};")
 end
 
-def delete_investor (id)
+def delete_investor(id)
   return run_sql( "DELETE FROM investors WHERE id = #{id};")
 end
+
+# ALTER TABLE investor_ratings ALTER COLUMN 
+
+# ALTER TABLE employee ADD FOREIGN KEY(dept_fk) REFERENCES department (IDpk) ON DELETE CASCADE;
 

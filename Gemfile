@@ -5,3 +5,7 @@ gem 'sinatra'
 gem 'pg'
 gem 'bcrypt'
 gem 'pry'
+
+group :development do
+  gem 'sinatra-contrib'
+end

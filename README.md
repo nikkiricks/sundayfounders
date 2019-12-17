@@ -44,7 +44,7 @@ I then created a [Figma wireframe](https://www.figma.com/file/EJrlAjbWp9QnHLmHJq
 
 ## Challenges
 
-* Understanding how to get the three databases to talk to one another
+* Understanding how to get the three tables to talk to one another
 * Login process and deciding what information I wanted the user to be able to see before signing-up.
 * Looping through certain methods created and understanding arrays and hashes.
 

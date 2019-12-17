@@ -1,16 +1,15 @@
-require 'sinatra'
-require 'sinatra/reloader'
-
 require 'pg'
 require 'pry'
+
+def run_sql(sql)
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: "sundayfounders"})
+  records = conn.exec(sql)
+  conn.close
+  return records
+end
 
 require_relative 'models/investors'
 require_relative 'models/ratings'
 require_relative 'models/users' 
-
-require_relative 'controllers/investors_controller'
-require_relative 'controllers/login_controller'
-
-
 
 binding.pry

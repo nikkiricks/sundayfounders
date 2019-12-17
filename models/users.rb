@@ -25,12 +25,16 @@ def create_user(email, password)
   return run_sql(sql)
 end
 
-def delete_user (email)
+def delete_user(email)
   return run_sql("DELETE FROM users WHERE email = '#{email}';")
 end
 
 
-def  update_user (id)
+def  update_user(id)
   return run_sql("UPDATE users SET email = '#{params[:email]}' WHERE id = #{params[:id]};")
 end
 
+
+# ALTER TABLE investor_ratings ADD FOREIGN KEY(user_id) REFERENCES users (id) ON DELETE RESTRICT;
+
+# ALTER TABLE users ADD PRIMARY KEY (id);
