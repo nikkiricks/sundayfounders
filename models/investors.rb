@@ -1,8 +1,3 @@
-
-
-
-
-
 def all_investors()
   return run_sql( "SELECT * FROM investors;") 
 end
@@ -23,7 +18,4 @@ def delete_investor(id)
   return run_sql( "DELETE FROM investors WHERE id = #{id};")
 end
 
-# ALTER TABLE investor_ratings ALTER COLUMN 
-
-# ALTER TABLE employee ADD FOREIGN KEY(dept_fk) REFERENCES department (IDpk) ON DELETE CASCADE;
 

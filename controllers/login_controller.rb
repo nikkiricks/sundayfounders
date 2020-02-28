@@ -1,28 +1,22 @@
 get '/signup' do
- 
   erb :signup
 end
 
 post '/signup' do
-
   create_user(params[:email], params[:password] )
   user = find_user_by_email(params[:email])
   session[:user_id] = user["id"] #single source of truth
   # redirect '/'
   redirect '/investors'
-
-  # redirect "/profile"
 end
 
 
 get '/login' do
-  
   erb :login
-
 end
 
 post '/login' do
-  # check Bryan's account exists in the db
+  # check account exists in the db
   user = find_user_by_email(params[:email])
   # return (params[:password])
   if BCrypt::Password.new(user["password_digest"]) == params[:password]
@@ -37,7 +31,6 @@ post '/login' do
     return "No frynuts"
   end
   # redirect to secret location
-
   redirect "/"
 end
 
@@ -64,7 +57,6 @@ delete '/delete_rating' do
 end
 
 get '/settings' do
-
   erb :settings
 end
 

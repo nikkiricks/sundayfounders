@@ -1,18 +1,15 @@
 get '/investors' do
-
   @investors = all_investors()
 
   erb :investors
 end
 
 post '/create_investor' do
-
   create_investor(params[:name], params[:url], params[:logo_url], params[:portfolio_size], params[:fum] )
   
   #make a new request on behalf of the client
   # redirect is a get /
   redirect '/investors'
-
 end
 
 get '/investor_details' do

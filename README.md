@@ -1,6 +1,6 @@
 # Sunday Founders
 
-[Sunday Founders Link](https://sunday-founders.herokuapp.com/){:target="\_blank"}
+[Sunday Founders Link](https://sunday-founders.herokuapp.com/)
 
 A CRUD Ruby app that's a transparency platform on investors for startup founders. A place for founders to get information, and rate and review their investors.
 

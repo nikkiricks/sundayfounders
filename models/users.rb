@@ -1,7 +1,5 @@
 require 'bcrypt'
 
-
-
 def all_users()
   return run_sql("SELECT * FROM users;") 
 end
@@ -33,8 +31,3 @@ end
 def  update_user(id)
   return run_sql("UPDATE users SET email = '#{params[:email]}' WHERE id = #{params[:id]};")
 end
-
-
-# ALTER TABLE investor_ratings ADD FOREIGN KEY(user_id) REFERENCES users (id) ON DELETE RESTRICT;
-
-# ALTER TABLE users ADD PRIMARY KEY (id);
